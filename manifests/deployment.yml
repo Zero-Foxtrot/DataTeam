@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "datateam-98fe"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "datateam-98fe"
+  template:
+    metadata:
+      labels:
+        app: "datateam-98fe"
+    spec:
+      containers:
+        - name: "datateam-98fe"
+          image: "btrustengdata.azurecr.io/datateam"
+          ports:
+          - containerPort: 80
