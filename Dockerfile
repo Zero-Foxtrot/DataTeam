@@ -40,7 +40,4 @@ WORKDIR /azp
 COPY ./start.sh .
 RUN chmod +x start.sh
 
-COPY ./test.sh .
-RUN chmod +x test.sh
-
 ENTRYPOINT ["./start.sh"]

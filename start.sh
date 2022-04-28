@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-./test.sh
-
 if [ -z "$AZP_URL" ]; then
   echo 1>&2 "error: missing AZP_URL environment variable"
   exit 1
@@ -90,8 +88,6 @@ trap 'cleanup; exit 130' INT
 trap 'cleanup; exit 143' TERM
 
 chmod +x ./run-docker.sh
-
-./test.sh
 
 # To be aware of TERM and INT signals call run.sh
 # Running it with the --once flag at the end will shut down the agent after the build is executed
