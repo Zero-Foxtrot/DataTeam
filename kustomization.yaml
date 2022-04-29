@@ -1,6 +1,10 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: default
-resources:
-  - dockerfile.yaml
-  path: "./deploy/production"
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: DataTeam
+  namespace: datatea,
+spec:
+  interval: 5m
+  url: https://github.com/Zero-Foxtrot/DataTeam
+  ref:
+    branch: main
