@@ -1,8 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: GitRepository
 metadata:
-  name: webapp
-  namespace: apps
+  name: DataTeam
+  namespace: datateam
 spec:
   interval: 1m0s # check for new commits every minute and apply changes
   url: https://github.com/org/webapp # clone over HTTPS 
@@ -19,7 +19,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: agent
+  name: DataTeam
   namespace: datateam
 spec:
   interval: 60m0s # detect drift and undo kubectl edits every hour
@@ -31,6 +31,6 @@ spec:
   targetNamespace: datateam # set the namespace for all resources
   sourceRef:
     kind: GitRepository
-    name: agent
+    name: DataTeam
     namespace: datateam
   path: "./deploy/production"
