@@ -4,7 +4,7 @@ namespace: datateam
 resources:
   - deployment.yaml
   - service.yaml
---
+---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
